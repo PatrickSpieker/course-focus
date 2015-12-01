@@ -1,6 +1,6 @@
-# UW Schedule Scraper
+# DataLab Schedule Scraper
 
-UW Schedule Scraper goes through University of Washington
+DataLab Schedule Scraper goes through University of Washington
 course descriptions and visualizes course pathways in a
 given UW department. 
 
@@ -29,5 +29,3 @@ python main.py [dept-code]
 ```
 
 Written in Python 2.
-
-
