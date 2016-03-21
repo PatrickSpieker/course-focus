@@ -68,7 +68,6 @@ for deptCode in asCodes:
     print "Adding " + deptCode + " to JSON...\n"
     json_output[deptCode] = deptJSON
 
-            
 
 with open("ext/course-data-uwccs.json", "w") as outfile:
     json.dump(json_output, fp=outfile)
