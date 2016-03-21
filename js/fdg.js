@@ -1,12 +1,13 @@
-var w = 1080;
-    var h = 960;
+var w = 800;
+var h = 800;
+
 var svg = d3.select("div.graph").append("svg")
         .attr("width", w)
         .attr("height", h);
 var force = d3.layout.force()
         .gravity(.05)
         .distance(100)
-        .charge(-100)
+        .charge(-150)
         .size([w, h]);
 
 d3.json('ext/force-data.json', function(error, json_data) {

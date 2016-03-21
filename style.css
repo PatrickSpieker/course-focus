@@ -8,6 +8,10 @@
     font: 10px sans-serif;
 }
 
-div.graph {
 
+div.sidebar {
+    position: absolute;
+    padding: 45px;
+    top: 0px;
+    left: 800px;
 }
