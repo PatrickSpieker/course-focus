@@ -1,9 +1,15 @@
 .link {
     stroke: #777;
     stroke-width: 2px;
+    position: relative;
+    z-index: 0;
 }
 
-.node text {
+g {
+    position: relative;
+    z-index: 2;
+}
+g.node {
     pointer-events: none;
     font: 10px sans-serif;
 }
