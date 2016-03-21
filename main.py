@@ -28,11 +28,13 @@ asCodes = ["AFRAM", "AES", "AAS", "CHSTU", "SWA", "TAGLG",
            'NBIO', 'PHIL', 'VALUES', 'PHYS', 'POL S', 'PSYCH', 'DANISH',
            'ESTO', 'FINN', 'LATV', 'LITH', 'NORW', 'SCAND', 'SWED', 'BCS',
            "BULGR", "CZECH", "POLSH", 'ROMN', 'RUSS', 'SLAV', 'SLAVIC', 'SLVN', 
-           'UKR',
-           "SOCSCI", "SOC", "PORT", "SPAN", "SPLING", "SPHSC", "STAT"]
+           'UKR', "SOCSCI", "SOC", "PORT", "SPAN", "SPLING", "SPHSC", "STAT"]
 
+# sorting the department codes
+asCodes.sort()
 
-for deptCode in asCodes: 
+for deptCode in asCodes:
+    print "Accessing " + deptCode + " data..."
     deptJSON = {}
     # constructing regex patterns
     # for this deptCode  
@@ -42,7 +44,9 @@ for deptCode in asCodes:
 
     # getting soup for this deptCode
     soup = getSoup(downloadCourseData(deptCode))
-
+    removeDownloadedData(deptCode)
+    print "Finished getting " + deptCode + " data"
+    print "Creating connections for " + deptCode + "..."
     # finding each course in the department
     for tag in getTags(deptPatt, soup):
         # only concerned with first child
@@ -61,16 +65,15 @@ for deptCode in asCodes:
             courseInfo = {u"course_id": courseId, u"regPrereqs": regPrereqs,
                     u"choicePrereqs": choicePrereqs, u"numCID": numCID}
             deptJSON[courseClass] = courseInfo
-
+    print "Adding " + deptCode + " to JSON...\n"
     json_output[deptCode] = deptJSON
+
             
 
-with open("course-data-uwcss.json", "w") as outfile:
+with open("ext/course-data-uwccs.json", "w") as outfile:
     json.dump(json_output, fp=outfile)
 
-removeDownloadedData(asCodes)
 
-pprint(json_output)
 
 
 

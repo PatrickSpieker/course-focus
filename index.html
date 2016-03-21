@@ -27,7 +27,7 @@
                     .charge(-100)
                     .size([w, h]);
 
-            d3.json('course-data.json', function(error, json_data) {
+            d3.json('force-data.json', function(error, json_data) {
                 if (error) throw error;
 
                 force.nodes(json_data.nodes)
