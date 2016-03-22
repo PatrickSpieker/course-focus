@@ -1,0 +1,1 @@
+{"nodes": [{"course_id": "aramic201", "regPrereqs": [], "choicePrereqs": [["IBHEB 103", "IBHEB 105"]], "numCID": 201}, {"course_id": "aramic423", "regPrereqs": ["ramic412"], "choicePrereqs": [], "numCID": 423}], "links": []}

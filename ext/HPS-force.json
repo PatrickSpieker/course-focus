@@ -1,0 +1,1 @@
+{"nodes": [{"course_id": "hps400", "regPrereqs": [], "choicePrereqs": [["STCMP 311", "STCMP 312", "STCMP 313", "STCMP 314", "STCMP 315", "STCMP 317", "STCMP 318", "STCMP 412"], ["PHIL 350", "PHIL 360", "PHIL 450", "PHIL 460", "PHIL 464", "PHIL 466", "PHIL 473", "PHIL 481", "PHIL 482", "PHIL 483"]], "numCID": 400}], "links": []}

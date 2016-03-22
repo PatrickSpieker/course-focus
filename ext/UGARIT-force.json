@@ -1,0 +1,1 @@
+{"nodes": [{"course_id": "ugarit201", "regPrereqs": [], "choicePrereqs": [["ARAB 103", "ARAB 105", "ODHEB 103", "ODHEB 105"]], "numCID": 201}, {"course_id": "ugarit203", "regPrereqs": ["garit202"], "choicePrereqs": [], "numCID": 203}, {"course_id": "ugarit202", "regPrereqs": ["garit201"], "choicePrereqs": [], "numCID": 202}], "links": []}
