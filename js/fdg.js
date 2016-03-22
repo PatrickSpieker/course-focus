@@ -10,6 +10,14 @@ var force = d3.layout.force()
         .charge(-150)
         .size([w, h]);
 
+/*
+d3.select("#depts").selectAll("li")
+            .data(json_data.nodes)
+            .enter()
+            .append("li")
+            .text(function(d){
+                return d['']
+            });*/
 d3.json('ext/force-data.json', function(error, json_data) {
     if (error) throw error;
 
