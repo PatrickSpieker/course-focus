@@ -1,1 +1,1 @@
-{"nodes": [{"course_id": "hum498", "regPrereqs": [], "choicePrereqs": [], "numCID": 498}, {"course_id": "hum205", "regPrereqs": [], "choicePrereqs": [], "numCID": 205}], "links": []}
+{"nodes": [{"course_id": "hum498", "reg_prereqs": [], "numCID": 498, "choice_prereqs": []}, {"course_id": "hum205", "reg_prereqs": [], "numCID": 205, "choice_prereqs": []}], "links": []}

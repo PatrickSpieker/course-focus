@@ -1,1 +1,1 @@
-{"nodes": [{"course_id": "values495", "regPrereqs": [], "choicePrereqs": [], "numCID": 495}, {"course_id": "values207", "regPrereqs": [], "choicePrereqs": [], "numCID": 207}, {"course_id": "values291", "regPrereqs": [], "choicePrereqs": [], "numCID": 291}], "links": []}
+{"nodes": [{"course_id": "values495", "reg_prereqs": [], "numCID": 495, "choice_prereqs": []}, {"course_id": "values207", "reg_prereqs": [], "numCID": 207, "choice_prereqs": []}, {"course_id": "values291", "reg_prereqs": [], "numCID": 291, "choice_prereqs": []}], "links": []}

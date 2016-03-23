@@ -1,5 +1,4 @@
 import LinkGenerator
-import sys
 import json
 
 asCodes = ["AFRAM", "AES", "AAS", "CHSTU", "SWA", "TAGLG",
@@ -34,8 +33,5 @@ for dept_code in asCodes:
     json_output = {"nodes": node_list,
                    "links": link_list}
 
-    with open("ext/"+ dept_code +"-force.json", "w") as outfile:
+    with open("ext/" + dept_code + "-force.json", "w") as outfile:
         json.dump(json_output, fp=outfile)
-
-
-

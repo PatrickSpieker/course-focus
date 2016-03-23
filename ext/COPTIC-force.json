@@ -1,1 +1,1 @@
-{"nodes": [{"course_id": "coptic102", "regPrereqs": [], "choicePrereqs": [], "numCID": 102}, {"course_id": "coptic103", "regPrereqs": [], "choicePrereqs": [], "numCID": 103}, {"course_id": "coptic101", "regPrereqs": [], "choicePrereqs": [], "numCID": 101}], "links": []}
+{"nodes": [{"course_id": "coptic102", "reg_prereqs": [], "numCID": 102, "choice_prereqs": []}, {"course_id": "coptic103", "reg_prereqs": [], "numCID": 103, "choice_prereqs": []}, {"course_id": "coptic101", "reg_prereqs": [], "numCID": 101, "choice_prereqs": []}], "links": []}

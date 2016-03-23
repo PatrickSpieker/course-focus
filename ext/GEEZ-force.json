@@ -1,1 +1,1 @@
-{"nodes": [{"course_id": "geez101", "regPrereqs": [], "choicePrereqs": [], "numCID": 101}], "links": []}
+{"nodes": [{"course_id": "geez101", "reg_prereqs": [], "numCID": 101, "choice_prereqs": []}], "links": []}
