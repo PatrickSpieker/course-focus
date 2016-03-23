@@ -1,13 +1,12 @@
 line {
     stroke: #777;
-    stroke-width: 1px;
+    stroke-width: 2px;
 }
 
 
 .node {
     pointer-events: none;
     fill: white;
-    font: 10px sans-serif;
 }
 
 
@@ -15,5 +14,5 @@ div.sidebar {
     position: absolute;
     padding: 45px;
     top: 0px;
-    left: 800px;
+    left: 1000px;
 }

@@ -5,7 +5,7 @@ var loadDepts = function(data) {
 };
 
 var loadFDG = function(dept) {
-    var w = 800;
+    var w = 1000;
     var h = 800;
 
     var svg = d3.select("div.graph").append("svg")
@@ -13,7 +13,7 @@ var loadFDG = function(dept) {
         .attr("height", h);
     var force = d3.layout.force()
         .gravity(.05)
-        .distance(100)
+        .distance(200)
         .charge(-150)
         .size([w, h]);
 
@@ -29,24 +29,40 @@ var loadFDG = function(dept) {
             .enter().append("line")
             .attr("class", "link");
 
-        var node = svg.selectAll("g")
-            .data(json_data.nodes);
-
-        var nodeEnter = node.enter()
+        var node = svg.selectAll(".node")
+            .data(json_data.nodes).enter()
             .append("g")
+            .on("click", function(d) {
+                $(".selected-crs-info").remove();
+                $(".sidebar").append('<div class="selected-crs-info"></div>');
+                var name = d["course_id"];
+                var reg_prereqs = d["reg_prereqs"];
+                var choice_prereqs = d["choice_prereqs"];
+                $(".selected-crs-info").append("<h5>" + name + "</h5>");
+                for (var prereq in reg_prereqs) {
+                    $(".selected-crs-info").append("<p>" + reg_prereqs[prereq] + "</p>");
+                }
+
+                for (var prereq in choice_prereqs) {
+                    $(".selected-crs-info").append("<p>" + choice_prereqs[prereq] + "</p>");
+                }
+            })
             .call(force.drag);
 
-        var circle = nodeEnter.append("circle")
+
+        node.append("circle")
             .attr("r", 25)
             .attr("stroke", "black")
             .attr("fill", "white");
 
-        nodeEnter.append("text")
+        node.append("text")
             .attr("dx", -12)
             .attr("font-size", "8px")
+            .attr("stroke", "black")
             .text(function (d) {
                 return d["course_id"];
             });
+
 
         force.on("tick", function () {
             link
