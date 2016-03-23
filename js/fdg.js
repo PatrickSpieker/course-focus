@@ -24,6 +24,11 @@ var loadFDG = function(dept) {
             .links(json_data.links)
             .start();
 
+        var link = svg.selectAll(".link")
+            .data(json_data.links)
+            .enter().append("line")
+            .attr("class", "link");
+
         var node = svg.selectAll("g")
             .data(json_data.nodes);
 
@@ -42,11 +47,6 @@ var loadFDG = function(dept) {
             .text(function (d) {
                 return d["course_id"];
             });
-
-        var link = svg.selectAll(".link")
-            .data(json_data.links)
-            .enter().append("line")
-            .attr("class", "link");
 
         force.on("tick", function () {
             link

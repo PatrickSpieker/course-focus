@@ -1,11 +1,12 @@
-.link {
+line {
     stroke: #777;
-    stroke-width: 2px;
-    position: absolute;
+    stroke-width: 1px;
 }
+
 
 .node {
     pointer-events: none;
+    fill: white;
     font: 10px sans-serif;
 }
 
