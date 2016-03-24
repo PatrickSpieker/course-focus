@@ -33,18 +33,21 @@ var loadFDG = function(dept) {
             .data(json_data.nodes).enter()
             .append("g")
             .on("click", function(d) {
-                $(".selected-crs-info").remove();
+                $old_crs = $(".selected-crs-info");
+                $old_crs.remove();
                 $(".sidebar").append('<div class="selected-crs-info"></div>');
+                $new_crs = $(".selected-crs-info");
                 var name = d["course_id"];
                 var reg_prereqs = d["reg_prereqs"];
                 var choice_prereqs = d["choice_prereqs"];
-                $(".selected-crs-info").append("<h5>" + name + "</h5>");
+                $new_crs.append("<h5>" + name + "</h5>");
+                $new_crs.append("<h6>Must complete all of:</h6>");
                 for (var prereq in reg_prereqs) {
-                    $(".selected-crs-info").append("<p>" + reg_prereqs[prereq] + "</p>");
+                    $new_crs.append("<p>" + reg_prereqs[prereq] + "</p>");
                 }
-
+                $new_crs.append("<h6>Must complete at least one of:</h6>");
                 for (var prereq in choice_prereqs) {
-                    $(".selected-crs-info").append("<p>" + choice_prereqs[prereq] + "</p>");
+                    $new_crs.append("<p>" + choice_prereqs[prereq] + "</p>");
                 }
             })
             .call(force.drag);
@@ -56,8 +59,9 @@ var loadFDG = function(dept) {
             .attr("fill", "white");
 
         node.append("text")
-            .attr("dx", -12)
-            .attr("font-size", "8px")
+            .attr("dx", -16)
+            .attr("font-size", "13px")
+            .attr("font-family", "Times New Roman")
             .attr("stroke", "black")
             .text(function (d) {
                 return d["course_id"];

@@ -10,7 +10,6 @@ $(document).ready(function() {
         $("svg").remove();
         var nextDept = $("#depts").val();
         loadFDG(nextDept);
-        alert("hello");
     });
 
 });
