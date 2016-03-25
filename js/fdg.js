@@ -37,17 +37,21 @@ var loadFDG = function(dept) {
                 $old_crs.remove();
                 $(".sidebar").append('<div class="selected-crs-info"></div>');
                 $new_crs = $(".selected-crs-info");
+                console.log(d);
                 var name = d["course_id"];
                 var reg_prereqs = d["reg_prereqs"];
                 var choice_prereqs = d["choice_prereqs"];
+
                 $new_crs.append("<h5>" + name + "</h5>");
                 $new_crs.append("<h6>Must complete all of:</h6>");
                 for (var prereq in reg_prereqs) {
                     $new_crs.append("<p>" + reg_prereqs[prereq] + "</p>");
                 }
                 $new_crs.append("<h6>Must complete at least one of:</h6>");
-                for (var prereq in choice_prereqs) {
-                    $new_crs.append("<p>" + choice_prereqs[prereq] + "</p>");
+                
+                for (var i = 0; i < choice_prereqs.length; i++) {
+                    //$new_crs.append("<p>" + choice_prereqs[prereq] + "</p>");
+
                 }
             })
             .call(force.drag);

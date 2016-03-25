@@ -88,8 +88,8 @@ def get_choice_prereqs(raw_prereq_list, course_patt):
         if "or" in section:
             # append the ENTIRE tuple of options to the prereq list
             options = course_patt.findall(section)
-            for option in options:
-                choice_prereqs.append(option.replace(" ", "").lower())
+            section_choices = [option.replace(" ", "").lower() for option in options]
+            choice_prereqs.append(section_choices)
     return choice_prereqs
 
 

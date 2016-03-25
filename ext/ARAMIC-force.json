@@ -1,1 +1,1 @@
-{"nodes": [{"course_id": "aramic201", "reg_prereqs": [], "numCID": 201, "choice_prereqs": ["bibheb103", "bibheb105"]}, {"course_id": "aramic423", "reg_prereqs": ["aramic412"], "numCID": 423, "choice_prereqs": []}], "links": []}
+{"nodes": [{"course_id": "aramic201", "reg_prereqs": [], "numCID": 201, "choice_prereqs": [["bibheb103", "bibheb105"]]}, {"course_id": "aramic423", "reg_prereqs": ["aramic412"], "numCID": 423, "choice_prereqs": []}], "links": []}
