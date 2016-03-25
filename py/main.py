@@ -51,8 +51,8 @@ for dept_code in as_codes:
     for tag in get_tags(dept_patt, soup):
         # only concerned with first child
         content = tag.findAll()[0]
-        course_id = get_course_id(content, dept_code)
-        courseClass = course_id.replace(" ", "").lower()
+        course_name = get_course_name(content, dept_code)
+        course_id = course_name.replace(" ", "").lower()
 
         # filtering out grad level courses
         numCID = int(float(course_id[len(dept_code):]))
@@ -63,10 +63,10 @@ for dept_code in as_codes:
             course_info = get_course_info(content)
              
             # creating JSON object to represent current node
-            courseInfo = {u"course_id": course_id, u"reg_prereqs": reg_prereqs,
-                          u"choice_prereqs": choice_prereqs, u"numCID": numCID,
-                          u"course_info": course_info}
-            dept_json[courseClass] = courseInfo
+            course_json = {u"course_id": course_id, u"reg_prereqs": reg_prereqs,
+                           u"choice_prereqs": choice_prereqs, u"numCID": numCID,
+                           u"course_info": course_info, u"course_name": course_name}
+            dept_json[course_id] = course_json
     print "Adding " + dept_code + " to JSON...\n"
     json_output[dept_code] = dept_json
 

@@ -77,12 +77,13 @@ var loadFDG = function(dept) {
             .attr("fill", "white");
 
         node.append("text")
-            .attr("dx", -16)
-            .attr("font-size", "13px")
+            .attr("dx", -21)
+            .attr("dy", 4)
+            .attr("font-size", "12px")
             .attr("font-family", "Times New Roman")
             .attr("stroke", "black")
             .text(function (d) {
-                return d["course_id"];
+                return d["course_name"];
             });
 
 

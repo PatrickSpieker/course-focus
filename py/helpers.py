@@ -105,11 +105,11 @@ def get_choice_prereqs(raw_prereq_list, course_patt):
     return choice_prereqs
 
 
-def get_course_id(content, dept_code):
+def get_course_name(content, dept_code):
     # defining string with course info
     course_str = content.b.string
-    # finding length of course_id
-    id_end = len(dept_code.lower())+4  # length of space and number
-    # defining course id, ex: CSE 143
-    course_id = course_str[0:id_end].replace(" ", "").lower()
-    return course_id
+    # finding length of course_name
+    name_end = len(dept_code.lower())+4  # length of space and number
+    # defining course name, ex: CSE 143
+    course_name = course_str[0:name_end]
+    return course_name
