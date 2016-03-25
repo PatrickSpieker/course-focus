@@ -5,8 +5,9 @@ var loadDepts = function(data) {
 };
 
 var loadFDG = function(dept) {
-    var w = 800;
-    var h = 1400;
+    var w = 1000;
+    var h = 800;
+    var node_r = 25;
 
     var svg = d3.select("div.graph").append("svg")
         .attr("width", w)
@@ -14,7 +15,7 @@ var loadFDG = function(dept) {
     var force = d3.layout.force()
         .gravity(.05)
         .distance(200)
-        .charge(-1000)
+        .charge(-200)
         .size([w, h]);
 
     d3.json('ext/' + dept + '-force.json', function (error, json_data) {
@@ -72,7 +73,7 @@ var loadFDG = function(dept) {
 
 
         node.append("circle")
-            .attr("r", 25)
+            .attr("r", node_r)
             .attr("stroke", "black")
             .attr("fill", "white");
 
@@ -102,6 +103,18 @@ var loadFDG = function(dept) {
                     return d.target.y;
                 });
             node.attr("transform", function (d) {
+                if (d.x < node_r) {
+                    d.x = 0 + 2*node_r;
+                } else if (d.x > w-node_r) {
+                    d.x = w - 2*node_r;
+                }
+
+                if (d.y < node_r) {
+                    d.y = 0 + 2*node_r;
+                } else if (d.y > h-node_r) {
+                    d.y = h - 2*node_r;
+                }
+
                 return "translate(" + d.x + "," + d.y + ")";
             });
 
