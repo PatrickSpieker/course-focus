@@ -60,10 +60,12 @@ for dept_code in as_codes:
             rawList = get_raw_prereq_list(content)
             reg_prereqs = get_reg_prereqs(rawList, coursePatt)
             choice_prereqs = get_choice_prereqs(rawList, coursePatt)
+            course_info = get_course_info(content)
              
             # creating JSON object to represent current node
             courseInfo = {u"course_id": course_id, u"reg_prereqs": reg_prereqs,
-                          u"choice_prereqs": choice_prereqs, u"numCID": numCID}
+                          u"choice_prereqs": choice_prereqs, u"numCID": numCID,
+                          u"course_info": course_info}
             dept_json[courseClass] = courseInfo
     print "Adding " + dept_code + " to JSON...\n"
     json_output[dept_code] = dept_json

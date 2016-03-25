@@ -46,8 +46,11 @@ var loadFDG = function(dept) {
                 var name = d["course_id"];
                 var reg_prereqs = d["reg_prereqs"];
                 var choice_prereqs = d["choice_prereqs"];
+                var info = d["course_info"];
 
-                $new_crs.append("<h5>" + name + "</h5>");
+
+                $new_crs.append(info);
+
 
                 // checking for and filling in all non-chooseable prereqs
                 if (reg_prereqs.length > 0) {

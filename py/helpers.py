@@ -66,6 +66,18 @@ def get_raw_prereq_list(content):
     return relevant_content.split(";")
 
 
+def get_course_info(content):
+    str_content = str(content)
+    if has_prereqs(content):
+        desc_end_idx = str_content.find("Prerequisite: ")
+    elif has_off_w(content):
+        desc_end_idx = str_content.find("Offered: jointly")
+    else:
+        desc_end_idx = len(str_content)-1
+    desc = str_content[0:desc_end_idx]
+    return desc
+
+
 def get_reg_prereqs(raw_prereq_list, course_patt):
     if not raw_prereq_list:
         return []
