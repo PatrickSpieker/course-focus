@@ -90,4 +90,3 @@ for dept_code in as_codes:
 with open("ext/course-data-uwccs.json", "w") as outfile:
     json.dump(json_output, fp=outfile)
 
-#pprint(json_output["FRENCH"])

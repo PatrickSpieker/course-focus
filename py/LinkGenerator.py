@@ -18,11 +18,12 @@ def get_dept_node_dict(path_to_json, dept_name):
 def generate_node_list(dept_node_dict):
     """Generate a list of JSON objects for a force directed graph
 
-    returns a list of JSON objects, formatted to be used as the node list of
-    a force directed graph
+    returns a list of JSON objects that are connected to some other node in the JSON,
+    formatted to be used as the node list of a force directed graph
     """
     node_list = []
     for key in dept_node_dict:
+        # checking to see if the node is connected to any other nodes
         if (len(dept_node_dict[key]["reg_prereqs"]) != 0) or (len(dept_node_dict[key]["is_prereq_for"]) != 0):
             print "Adding " + key
             node_list.append(dept_node_dict[key])
