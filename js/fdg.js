@@ -33,25 +33,36 @@ var loadFDG = function(dept) {
             .data(json_data.nodes).enter()
             .append("g")
             .on("click", function(d) {
+
+                // removing the old course's info
                 $old_crs = $(".selected-crs-info");
                 $old_crs.remove();
+
+                // appending the container for the new information
                 $(".sidebar").append('<div class="selected-crs-info"></div>');
                 $new_crs = $(".selected-crs-info");
-                console.log(d);
+
+                // retrieving info about the clicked course
                 var name = d["course_id"];
                 var reg_prereqs = d["reg_prereqs"];
                 var choice_prereqs = d["choice_prereqs"];
 
                 $new_crs.append("<h5>" + name + "</h5>");
-                $new_crs.append("<h6>Must complete all of:</h6>");
-                for (var prereq in reg_prereqs) {
-                    $new_crs.append("<p>" + reg_prereqs[prereq] + "</p>");
-                }
-                $new_crs.append("<h6>Must complete at least one of:</h6>");
-                
-                for (var i = 0; i < choice_prereqs.length; i++) {
-                    //$new_crs.append("<p>" + choice_prereqs[prereq] + "</p>");
 
+                // checking for and filling in all non-chooseable prereqs
+                if (reg_prereqs.length > 0) {
+                    $new_crs.append("<h6>Must complete all of:</h6>");
+                    for (var i = 0; i < reg_prereqs.length; i++) {
+                        $new_crs.append("<p>" + reg_prereqs[i] + "</p>");
+                    }
+                }
+
+                // filling in choice prereqs
+                for (var i = 0; i < choice_prereqs.length; i++) {
+                    $new_crs.append("<h6>Must complete at least one of:</h6>");
+                    for (var j = 0; j < choice_prereqs[i].length; j++) {
+                        $new_crs.append("<p>" + choice_prereqs[i][j] + "</p>");
+                    }
                 }
             })
             .call(force.drag);
