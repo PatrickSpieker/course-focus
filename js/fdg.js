@@ -5,8 +5,8 @@ var loadDepts = function(data) {
 };
 
 var loadFDG = function(dept) {
-    var w = 1000;
-    var h = 800;
+    var w = 800;
+    var h = 1400;
 
     var svg = d3.select("div.graph").append("svg")
         .attr("width", w)
@@ -14,7 +14,7 @@ var loadFDG = function(dept) {
     var force = d3.layout.force()
         .gravity(.05)
         .distance(200)
-        .charge(-150)
+        .charge(-1000)
         .size([w, h]);
 
     d3.json('ext/' + dept + '-force.json', function (error, json_data) {
