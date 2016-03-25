@@ -15,7 +15,7 @@ var loadFDG = function(dept) {
     var force = d3.layout.force()
         .gravity(.05)
         .distance(200)
-        .charge(-200)
+        .charge(-600)
         .size([w, h]);
 
     d3.json('ext/' + dept + '-force.json', function (error, json_data) {
@@ -48,6 +48,7 @@ var loadFDG = function(dept) {
                 var reg_prereqs = d["reg_prereqs"];
                 var choice_prereqs = d["choice_prereqs"];
                 var info = d["course_info"];
+                var is_prereq_for = d["is_prereq_for"];
 
 
                 $new_crs.append(info);
@@ -66,6 +67,13 @@ var loadFDG = function(dept) {
                     $new_crs.append("<h6>Must complete at least one of:</h6>");
                     for (var j = 0; j < choice_prereqs[i].length; j++) {
                         $new_crs.append("<p>" + choice_prereqs[i][j] + "</p>");
+                    }
+                }
+
+                if (is_prereq_for.length > 0) {
+                    $new_crs.append("<h6>Class is a prerequisite for:</h6>");
+                    for (var i = 0; i < is_prereq_for.length; i++) {
+                        $new_crs.append("<p>" + is_prereq_for[i] + "</p>");
                     }
                 }
             })

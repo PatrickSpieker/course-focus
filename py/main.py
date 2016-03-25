@@ -65,13 +65,29 @@ for dept_code in as_codes:
             # creating JSON object to represent current node
             course_json = {u"course_id": course_id, u"reg_prereqs": reg_prereqs,
                            u"choice_prereqs": choice_prereqs, u"numCID": numCID,
-                           u"course_info": course_info, u"course_name": course_name}
+                           u"course_info": course_info, u"course_name": course_name,
+                           u"is_prereq_for": []}
             dept_json[course_id] = course_json
+
     print "Adding " + dept_code + " to JSON...\n"
     json_output[dept_code] = dept_json
+
+for dept_code in as_codes:
+    dept_json = json_output[dept_code]
+    for course_id in dept_json:
+        print "Working with " + course_id
+        course_data = dept_json[course_id]
+        for prereq in course_data["reg_prereqs"]:
+            print "Prereq:" + prereq
+            if prereq in dept_json:
+                other_list = dept_json[prereq]["is_prereq_for"]
+                other_list.append(course_id)
+
+                dept_json[prereq]["is_prereq_for"] = other_list
+    print "\n"
 
 
 with open("ext/course-data-uwccs.json", "w") as outfile:
     json.dump(json_output, fp=outfile)
 
-pprint(json_output["FRENCH"])
+#pprint(json_output["FRENCH"])

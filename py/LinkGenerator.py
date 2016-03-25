@@ -23,7 +23,9 @@ def generate_node_list(dept_node_dict):
     """
     node_list = []
     for key in dept_node_dict:
-        node_list.append(dept_node_dict[key])
+        if (len(dept_node_dict[key]["reg_prereqs"]) != 0) or (len(dept_node_dict[key]["is_prereq_for"]) != 0):
+            print "Adding " + key
+            node_list.append(dept_node_dict[key])
     return node_list
 
 
