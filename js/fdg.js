@@ -112,15 +112,15 @@ var loadFDG = function(dept) {
                 });
             node.attr("transform", function (d) {
                 if (d.x < node_r) {
-                    d.x = 0 + 2*node_r;
+                    d.x = node_r;
                 } else if (d.x > w-node_r) {
-                    d.x = w - 2*node_r;
+                    d.x = w - node_r;
                 }
 
                 if (d.y < node_r) {
-                    d.y = 0 + 2*node_r;
+                    d.y = node_r;
                 } else if (d.y > h-node_r) {
-                    d.y = h - 2*node_r;
+                    d.y = h - node_r;
                 }
 
                 return "translate(" + d.x + "," + d.y + ")";
