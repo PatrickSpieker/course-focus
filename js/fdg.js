@@ -26,6 +26,18 @@ var loadFDG = function(dept) {
         .attr("width", w)
         .attr("height", h);
 
+    var marker = svg.append("defs").append("marker")
+        .attr("id", "markerArrow")
+        .attr("viewBox", "0 0 10 10")
+        .attr("refX", 1)
+        .attr("refY", 5)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto");
+
+    var path = marker.append("path")
+        .attr("d", "M 0 0 L 10 5 L 0 10 z");
+
     // creating the force layout itself
     var force = d3.layout.force()
         .gravity(.05)
@@ -46,8 +58,10 @@ var loadFDG = function(dept) {
         // elements to all the elements with the link class
         var link = svg.selectAll(".link")
             .data(json_data.links)
-            .enter().append("line")
-            .attr("class", "link");
+            .enter().append("polyline")
+            .attr("class", "link")
+            .attr("marker-mid", "#markerArrow");
+
 
         // adding the node functionality to all the elements with
         // the node class (the circle elements are created below)
@@ -124,7 +138,14 @@ var loadFDG = function(dept) {
             // updating the links with the new source x and y
             // of their respective sources and destinations
             link
-                .attr("x1", function (d) {
+                .attr("points", function(d) {
+                return d.source.x + "," + d.source.y + " "
+                        + (d.source.x + d.target.x)/2 + ","
+                        + (d.source.y + d.target.y)/2 + " "
+                        + d.target.x + "," + d.target.y;
+                });
+
+                /*.attr("x1", function (d) {
                     return d.source.x;
                 })
                 .attr("y1", function (d) {
@@ -135,7 +156,7 @@ var loadFDG = function(dept) {
                 })
                 .attr("y2", function (d) {
                     return d.target.y;
-                });
+                });*/
             // updating the nodes' position and
             // making sure they are inside the SVG container
             node.attr("transform", function (d) {
