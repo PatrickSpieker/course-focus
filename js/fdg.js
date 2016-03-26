@@ -68,7 +68,13 @@ var loadFDG = function(dept) {
         var node = svg.selectAll(".node")
             .data(json_data.nodes).enter()
             .append("g")
+            .attr("id", function(d){
+                return d["course_id"];
+            })
             .on("click", function(d) {
+
+                d3.selectAll("circle")
+                    .attr("fill", "white");
 
                 // removing the old course's info
                 $old_crs = $(".selected-crs-info");
@@ -85,6 +91,9 @@ var loadFDG = function(dept) {
                 var info = d["course_info"];
                 var is_prereq_for = d["is_prereq_for"];
 
+                d3.select("#" + name).selectAll("circle")
+                    .attr("fill", "red");
+
                 // adding the course description and link to MyPlan to the
                 // sidebar
                 $new_crs.append(info);
@@ -95,6 +104,8 @@ var loadFDG = function(dept) {
                     $new_crs.append("<h6>Must complete all of:</h6>");
                     for (var i = 0; i < reg_prereqs.length; i++) {
                         $new_crs.append("<p>" + reg_prereqs[i] + "</p>");
+                        d3.select("#" + reg_prereqs[i]).selectAll("circle")
+                            .attr("fill", "#bbab44");
                     }
                 }
 
@@ -103,6 +114,8 @@ var loadFDG = function(dept) {
                     $new_crs.append("<h6>Must complete at least one of:</h6>");
                     for (var j = 0; j < choice_prereqs[i].length; j++) {
                         $new_crs.append("<p>" + choice_prereqs[i][j] + "</p>");
+                        d3.select("#" + choice_prereqs[i][j]).selectAll("circle")
+                            .attr("fill", "#ffdd00");
                     }
                 }
 
@@ -111,6 +124,8 @@ var loadFDG = function(dept) {
                     $new_crs.append("<h6>Class is a prerequisite for:</h6>");
                     for (var i = 0; i < is_prereq_for.length; i++) {
                         $new_crs.append("<p>" + is_prereq_for[i] + "</p>");
+                        d3.select("#" + is_prereq_for[i]).selectAll("circle")
+                            .attr("fill", "#0286bb");
                     }
                 }
             })
