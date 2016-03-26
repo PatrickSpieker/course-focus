@@ -145,18 +145,6 @@ var loadFDG = function(dept) {
                         + d.target.x + "," + d.target.y;
                 });
 
-                /*.attr("x1", function (d) {
-                    return d.source.x;
-                })
-                .attr("y1", function (d) {
-                    return d.source.y;
-                })
-                .attr("x2", function (d) {
-                    return d.target.x;
-                })
-                .attr("y2", function (d) {
-                    return d.target.y;
-                });*/
             // updating the nodes' position and
             // making sure they are inside the SVG container
             node.attr("transform", function (d) {
