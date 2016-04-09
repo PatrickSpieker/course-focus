@@ -1,23 +1,21 @@
-# DataLab Schedule Scraper
+# Course Focus
 
-DataLab Schedule Scraper goes through University of Washington
-course descriptions and visualizes course pathways in a
-given UW department. 
+Course focus is a data visualization of the relationships between
+the courses at the University of Washington. It allows users
+to see the prerequisites of a course and the courses that have
+the given course as a prerequisite. 
 
 Currently under development. 
 ###Features
- * Visualizes relationships between courses in a given UW department
- * Automatic prereq options set differentiation
- * Works for any department at UW
+ * Visualizes relationships between a course, its prerequisites
+   and the courses it is a prerequisite for
+ * Works for any department at UW (in development, currently 
+   just the College of Arts and Sciences 
 
 ###Installation
 ######Dependancies
  * BeautifulSoup 4.4.0
- * GraphViz 0.4.6
- * pyGraphViz 1.3rc2
  * lxml 3.4.4
- * requests 2.7.0
- * wheel 0.24.0
    
 ###Usage
 Takes uppercase department code after main.py.
