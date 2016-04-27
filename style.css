@@ -1,19 +1,7 @@
-.link {
-    stroke: #777;
-    stroke-width: 2px;
-    marker-mid: url(#markerArrow);
-}
-
-
-.node {
-    pointer-events: none;
-    fill: white;
-}
-
-
-div.sidebar {
+.bxslider li p {
+    margin: auto;
     position: absolute;
-    padding: 45px;
-    top: 0px;
-    left: 1000px;
+    left: 200px;
 }
+
+

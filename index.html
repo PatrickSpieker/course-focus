@@ -2,23 +2,35 @@
 <html>
     <head>
         <meta charset='utf-8'>
-        <title>UW Department Course Prerequisite Graph</title>
+        <title>UW Course Focus | Displaying Course Info</title>
         <link href="style.css" type="text/css" rel="stylesheet">
+        <link href="jquery.bxslider.css" rel="stylesheet" />
         <link href="favicon.ico" rel="icon">
-        <script src="js/d3/d3.min.js"></script>
-        <script src="js/jquery-1.12.2.min.js"></script>
-        <script src="js/fdg.js" charset="utf-8"></script>
-        <script src="js/jq.js" charset="utf-8"></script>
     </head>
     <body>
-        <div class="graph"></div>
-        <div class="sidebar">
-            <h5>Course Prerequisite Graph</h5>
+        <script src="js/d3/d3.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="js/jquery.bxslider.min.js"></script>
+
+        <script src="js/main.js"></script>
+        <script src="js/jq.js"></script>
+
+
+        <ul class="bxslider"></ul>
+
+
+        <div class="infobar">
+            <div class="selected-info"></div>
+            <h5>Course Info Tool</h5>
             <p>Please select a department</p>
             <select id="depts"></select>
-            <button class="new-dept" type="submit">Apply</button>
-            <div class="selected-crs-info"></div>
+            <button class="new-dept" type="submit">Select Department</button>
+            <select id="courses"></select>
+            <button class="new-course" type="submit">Select Course</button>
         </div>
+
+        <div class="post-opt-cont"></div>
+
     </body>
 </html>
 
