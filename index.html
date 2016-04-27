@@ -16,20 +16,28 @@
         <script src="js/jq.js"></script>
 
 
-        <ul class="bxslider"></ul>
-
-
-        <div class="infobar">
-            <div class="selected-info"></div>
-            <h5>Course Info Tool</h5>
-            <p>Please select a department</p>
-            <select id="depts"></select>
-            <button class="new-dept" type="submit">Select Department</button>
-            <select id="courses"></select>
-            <button class="new-course" type="submit">Select Course</button>
+        <div class="prereq-cont">
+            <p>Prerequisites:</p>
+            <ul id="prereq-slider"></ul>
         </div>
 
-        <div class="post-opt-cont"></div>
+        <div class="middle-nav">
+            <div class="control-bar">
+                <h5>Course Info Tool</h5>
+                <p>Please select a department</p>
+                <select id="depts"></select>
+                <button class="new-dept" type="submit">Select Department</button>
+                <select id="courses"></select>
+                <button class="new-course" type="submit">Select Course</button>
+            </div>
+
+            <div class="selected-info"></div>
+        </div>
+
+        <div class="postopt-cont">
+            <p>Is A Prerequisite For:</p>
+            <ul id="postopt-slider"></ul>
+        </div>
 
     </body>
 </html>
