@@ -74,7 +74,10 @@ for dept_code in as_codes:
 
 for dept_code in as_codes:
     dept_json = json_output[dept_code]
-    for course_id in dept_json:
+
+    ids = sorted([course_id for course_id in dept_json])
+
+    for course_id in ids:
         print "Working with " + course_id
         course_data = dept_json[course_id]
         for prereq in course_data["reg_prereqs"]:
@@ -87,6 +90,6 @@ for dept_code in as_codes:
     print "\n"
 
 
-with open("ext/course-data-uwccs.json", "w") as outfile:
+with open("../ext/course-data-uwccs.json", "w") as outfile:
     json.dump(json_output, fp=outfile)
 
