@@ -17,12 +17,32 @@ $(document).ready(function() {
 
     createDepts();
 
+    /* OnClick for selecting department */
     $("button.new-dept").click(function() {
-        var dept = $("#depts").val();
+        var dept = $("#dept").val().toUpperCase();
+
         $.getJSON("../ext/course-data-uwccs.json", function(data) {
             $("#courses").empty();
-            for (var course_id in data[dept]) {
-                $("#courses").append("<option value=\"" + course_id + "\">" + course_id + "</option>")
+
+            /* checking for existence of department */
+            if (data.hasOwnProperty(dept))  {
+
+                var dept_data = data[dept];
+                // getting and sorting course_id's
+                var ids = [];
+                for (var course_id in dept_data) {
+                    ids.push(course_id);
+                }
+                ids.sort();
+
+                // adding courses to course selector
+                for (var i = 0; i < ids.length; i++) {
+                    var course_id = ids[i];
+                    $("#courses").append("<option value=\"" + course_id + "\">"
+                                         + dept_data[course_id]["course_name"]  + "</option>");
+                }
+            } else {
+                alert("\"" + dept + "\"" + " doesn't exist in our database. Please try again.")
             }
         });
     });
@@ -35,7 +55,7 @@ $(document).ready(function() {
         $(".selected-info").empty();
 
         var course_id = $("#courses").val();
-        var dept = $("#depts").val();
+        var dept = $("#dept").val().toUpperCase();
 
         $.getJSON("../ext/course-data-uwccs.json", function(data) {
             var course = data[dept][course_id];

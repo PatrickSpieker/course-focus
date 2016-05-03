@@ -16,22 +16,21 @@
         <script src="js/jq.js"></script>
 
 
-        <div class="prereq-cont">
-            <p>Prerequisites:</p>
-            <ul id="prereq-slider"></ul>
-        </div>
 
         <div class="middle-nav">
             <div class="control-bar">
                 <h5>Course Info Tool</h5>
-                <p>Please select a department</p>
-                <select id="depts"></select>
-                <button class="new-dept" type="submit">Select Department</button>
+                <p>Please enter a department code (CSE, INFO, MATH, ENGL, etc)</p>
+                <input id="dept"></input>
+                <button class="new-dept" type="submit">Search for Department</button>
                 <select id="courses"></select>
                 <button class="new-course" type="submit">Select Course</button>
             </div>
+        </div>
 
-            <div class="selected-info"></div>
+        <div class="prereq-cont">
+            <p>Prerequisites:</p>
+            <ul id="prereq-slider"></ul>
         </div>
 
         <div class="postopt-cont">
